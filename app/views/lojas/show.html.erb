@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @loja.nome %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @loja.morada %>
+</p>
+
+<p>
+  <b>Detalhes:</b>
+  <%= @loja.detalhes %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @loja.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @loja.longitude %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @loja.gmaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_loja_path(@loja) %> |
+<%= link_to 'Back', lojas_path %>

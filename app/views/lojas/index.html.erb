@@ -1,0 +1,34 @@
+<h1>Listing lojas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Morada</th>
+    <th>Detalhes</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Gmaps</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lojas.each do |loja| %>
+  <tr>
+    <td><%= loja.nome %></td>
+    <td><%= loja.morada %></td>
+    <td><%= loja.detalhes %></td>
+    <td><%= loja.latitude %></td>
+    <td><%= loja.longitude %></td>
+    <td><%= loja.gmaps %></td>
+    <td><%= link_to 'Show', loja %></td>
+    <td><%= link_to 'Edit', edit_loja_path(loja) %></td>
+    <td><%= link_to 'Destroy', loja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loja', new_loja_path %>
+<%= gmaps4rails(@json) %>
