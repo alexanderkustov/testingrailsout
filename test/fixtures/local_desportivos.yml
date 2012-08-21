@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  detalhes: MyText
+  gmaps: false
+  latitude: 1.5
+  longitude: 1.5
+  morada: MyString
+  nome: MyString
+  desporto: MyString
+
+two:
+  detalhes: MyText
+  gmaps: false
+  latitude: 1.5
+  longitude: 1.5
+  morada: MyString
+  nome: MyString
+  desporto: MyString

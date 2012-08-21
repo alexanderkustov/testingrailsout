@@ -7,6 +7,11 @@ gem 'rails', '3.2.7'
 
 gem 'sqlite3'
 gem 'gmaps4rails'
+gem 'formtastic'
+gem "nifty-generators", :group => :development
+
+gem 'pg'
+gem "geocoder"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,3 +41,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

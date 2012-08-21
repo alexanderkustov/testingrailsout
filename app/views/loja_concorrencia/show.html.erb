@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @loja_concorrencium.nome %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @loja_concorrencium.categoria %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @loja_concorrencium.morada %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @loja_concorrencium.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @loja_concorrencium.longitude %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @loja_concorrencium.gmaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_loja_concorrencium_path(@loja_concorrencium) %> |
+<%= link_to 'Back', loja_concorrencia_path %>

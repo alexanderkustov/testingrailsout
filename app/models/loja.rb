@@ -1,24 +1,34 @@
 class Loja < ActiveRecord::Base
-  attr_accessible :detalhes, :gmaps, :latitude, :longitude, :morada, :nome
+  attr_accessible :detalhes, :gmaps, :latitude, :longitude, :morada, :nome, :contactos_attributes
+  has_many :contactos
+  accepts_nested_attributes_for :contactos, allow_destroy: true
+ 
+  acts_as_gmappable
 
-acts_as_gmappable
+  geocoded_by :morada                # can also be an IP address
+  after_validation :geocode, :if => :morada_changed?         # auto-fetch coordinates
 
   def gmaps4rails_address
     morada
   end
 
   def gmaps4rails_infowindow
-     "Decathlon: #{nome} <br \>
-     #{detalhes}
-     "
+      text = "<b>Nome:</b> #{nome} <br/> 
+     <b>Detalhes:</b> #{detalhes}<br \>
+      <h5>Contactos: </h5>
+      <ul>"
+        contactos.each do |contacto|
+          text << "<li>#{contacto.nome} #{contacto.contacto} #{contacto.detalhes}</li>"
+        end
+      text << "</ul>"
+  text
   end
-
-
+  
   def gmaps4rails_marker_picture
   {
    "picture" => "/images/dec.png",
-   "width" => 20,
-   "height" => 20,
+   "width" => 32,
+   "height" => 37,
   }
 end
 end

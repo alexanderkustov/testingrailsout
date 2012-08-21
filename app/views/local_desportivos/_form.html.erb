@@ -1,0 +1,17 @@
+<%= semantic_form_for @local_desportivo do |f| %>
+  <%= f.inputs do %>
+   
+    <%= f.input :nome %>
+    <%= f.input :desporto,  :as => :select, :collection => ["Futebol", "Basketball", "Volei", "Golfe", "Outro"] %>
+    <%= f.input :morada %>
+    <%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 } %>
+    <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %> 
+    <%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %> 
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+
+  <%= render 'jsmap' %>
+<% end %>

@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :nome, "Nome" %> 
+  <%= f.text_field :nome, :rows => 1  %>
+  <%= f.label :contacto, "Contacto" %>
+  <%= f.text_field :contacto %>
+  <%= f.label :detalhes, "Detalhes" %>
+  <%= f.text_area :detalhes, :rows => 1 %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remover", "#", class:"remove_fields" %>
+</fieldset>

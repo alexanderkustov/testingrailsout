@@ -1,0 +1,20 @@
+<% title "Ranking" %>
+
+<p>
+  <strong>Desporto:</strong>
+  <%= @ranking.desporto %>
+</p>
+<p>
+  <strong>Gama:</strong>
+  <%= @ranking.gama %>
+</p>
+<p>
+  <strong>Ranking:</strong>
+  <%= @ranking.ranking %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_ranking_path(@ranking) %> |
+  <%= link_to "Destroy", @ranking, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", rankings_path %>
+</p>

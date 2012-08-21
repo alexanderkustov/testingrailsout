@@ -1,41 +1,22 @@
-<%= form_for(@loja) do |f| %>
-  <% if @loja.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@loja.errors.count, "error") %> prohibited this loja from being saved:</h2>
+<%= semantic_form_for @loja do |f| %>
+  <%= f.inputs do%>
+  <%= f.input :nome %> 
+  <%= f.input :morada %> 
+  <%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 } %>
+  <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %> 
+  <%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %> 
+<% end %>
 
-      <ul>
-      <% @loja.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= f.actions do %>
+   <%= f.action :submit, :as => :button, :label => "Criar Loja"  %>
+<% end %>
+   
+<%= f.fields_for :contactos do |builder| %>
+  <%= render 'contacto_fields', f: builder %>
+  <%= link_to_add_fields "Adicionar Contacto", f, :contactos %>
+<% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :morada %><br />
-    <%= f.text_field :morada %>
-  </div>
-  <div class="field">
-    <%= f.label :detalhes %><br />
-    <%= f.text_area :detalhes %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :gmaps %><br />
-    <%= f.check_box :gmaps %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= render 'jsmap' %>
+
+
 <% end %>

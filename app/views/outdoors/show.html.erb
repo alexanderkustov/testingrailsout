@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @outdoor.nome %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @outdoor.morada %>
+</p>
+
+<p>
+  <b>Detalhes:</b>
+  <%= @outdoor.detalhes %>
+</p>
+<p>
+  <b>Foto:</b>
+  <img src="http://localhost:3000/images/<%= @outdoor.foto %>" />
+</p>
+<p>
+  <b>Latitude:</b>
+  <%= @outdoor.latitude %>
+</p>
+<p>
+  <b>Longitude:</b>
+  <%= @outdoor.longitude %>
+</p>
+<p>
+  <b>Gmaps:</b>
+  <%= @outdoor.gmaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_outdoor_path(@outdoor) %> |
+<%= link_to 'Back', outdoors_path %>

@@ -1,0 +1,47 @@
+<h1>Locais Desportivos</h1>
+
+<%= link_to 'Ver Lojas', lojas_path %> |
+<%= link_to 'Ver Lojas de Concorrencia', loja_concorrencia_path %> |
+<%= link_to 'Ver Locais Desportivos', local_desportivos_path %> |
+<%= link_to 'Ver Outdoors', outdoors_path %> |
+<%= link_to 'Ver Outros', outros_path %>
+
+
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Criar Loja', new_loja_path %> | 
+<%= link_to 'Criar Loja Concorrencia', new_loja_concorrencium_path %> |
+<%= link_to 'Criar Local Desportivo', new_local_desportivo_path %> |
+<%= link_to 'Criar Outdoor', new_outdoor_path %> |
+<%= link_to 'Criar Outro', new_outro_path %>
+
+
+<table>
+  <tr>
+    <th>Detalhes</th>
+    <th>Gmaps</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Morada</th>
+    <th>Nome</th>
+    <th>Desporto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @local_desportivos.each do |local_desportivo| %>
+  <tr>
+    <td><%= local_desportivo.detalhes %></td>
+    <td><%= local_desportivo.gmaps %></td>
+    <td><%= local_desportivo.latitude %></td>
+    <td><%= local_desportivo.longitude %></td>
+    <td><%= local_desportivo.morada %></td>
+    <td><%= local_desportivo.nome %></td>
+    <td><%= local_desportivo.desporto %></td>
+    <td><%= link_to 'Show', local_desportivo %></td>
+    <td><%= link_to 'Edit', edit_local_desportivo_path(local_desportivo) %></td>
+    <td><%= link_to 'Destroy', local_desportivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

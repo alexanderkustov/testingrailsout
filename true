@@ -1,0 +1,2 @@
+==  CreateOutdoors: migrating =================================================
+-- create_table(:outdoors)

@@ -1,0 +1,24 @@
+<%= semantic_form_for @loja_concorrencium do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :nome %>
+    <%= f.input :categoria %>
+    <%= f.input :morada %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :gmaps %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+
+<%= f.fields_for :rankings do |builder| %>
+  <%= render 'ranking_fields', f: builder %>
+  <%= link_to_add_fields "Adicionar Ranking", f, :rankings %>
+<% end %>
+
+<% end %>
+
+
+
+<%= render 'jsmap' %>

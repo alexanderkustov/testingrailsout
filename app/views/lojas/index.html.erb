@@ -1,13 +1,29 @@
-<h1>Listing lojas</h1>
+<h1>Aplicação Geomapping Decathlon</h1>
 
+<%= link_to 'Ver Lojas', lojas_path %> |
+<%= link_to 'Ver Lojas de Concorrencia', loja_concorrencia_path %> |
+<%= link_to 'Ver Locais Desportivos', local_desportivos_path %> |
+<%= link_to 'Ver Outdoors', outdoors_path %> |
+<%= link_to 'Ver Outros', outros_path %>
+
+
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Criar Loja', new_loja_path %> | 
+<%= link_to 'Criar Loja Concorrencia', new_loja_concorrencium_path %> |
+<%= link_to 'Criar Local Desportivo', new_local_desportivo_path %> |
+<%= link_to 'Criar Outdoor', new_outdoor_path %> |
+<%= link_to 'Criar Outro', new_outro_path %> 
+
+<br />
+<br />
+
+<h2>Lojas</h2>
 <table>
   <tr>
     <th>Nome</th>
     <th>Morada</th>
     <th>Detalhes</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Gmaps</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,17 +34,9 @@
     <td><%= loja.nome %></td>
     <td><%= loja.morada %></td>
     <td><%= loja.detalhes %></td>
-    <td><%= loja.latitude %></td>
-    <td><%= loja.longitude %></td>
-    <td><%= loja.gmaps %></td>
-    <td><%= link_to 'Show', loja %></td>
-    <td><%= link_to 'Edit', edit_loja_path(loja) %></td>
-    <td><%= link_to 'Destroy', loja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', loja %></td>
+    <td><%= link_to 'Editar', edit_loja_path(loja) %></td>
+    <td><%= link_to 'Apagar', loja, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Loja', new_loja_path %>
-<%= gmaps4rails(@json) %>

@@ -1,0 +1,37 @@
+<h1>Outros</h1>
+
+<%= link_to 'Ver Lojas', lojas_path %> |
+<%= link_to 'Ver Lojas de Concorrencia', loja_concorrencia_path %> |
+<%= link_to 'Ver Locais Desportivos', local_desportivos_path %> |
+<%= link_to 'Ver Outdoors', outdoors_path %> |
+<%= link_to 'Ver Outros', outros_path %>
+
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Criar Loja', new_loja_path %> | 
+<%= link_to 'Criar Loja Concorrencia', new_loja_concorrencium_path %> |
+<%= link_to 'Criar Local Desportivo', new_local_desportivo_path %> |
+<%= link_to 'Criar Outdoor', new_outdoor_path %> |
+<%= link_to 'Criar Outro', new_outro_path %>
+<br />
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Morada</th>
+    <th>Detalhes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @outros.each do |outro| %>
+  <tr>
+    <td><%= outro.nome %></td>
+    <td><%= outro.morada %></td>
+    <td><%= outro.detalhes %></td>
+    <td><%= link_to 'Ver', outro %></td>
+    <td><%= link_to 'Editar', edit_outro_path(outro) %></td>
+    <td><%= link_to 'Apagar', outro, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+  </tr>
+<% end %>
+</table>

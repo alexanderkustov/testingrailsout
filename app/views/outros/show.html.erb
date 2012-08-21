@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @outro.nome %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @outro.morada %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @outro.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @outro.longitude %>
+</p>
+
+<p>
+  <b>Detalhes:</b>
+  <%= @outro.detalhes %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @outro.gmaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_outro_path(@outro) %> |
+<%= link_to 'Back', outros_path %>

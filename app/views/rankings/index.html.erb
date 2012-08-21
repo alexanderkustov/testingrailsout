@@ -1,0 +1,21 @@
+<% title "Rankings" %>
+
+<table>
+  <tr>
+    <th>Desporto</th>
+    <th>Gama</th>
+    <th>Ranking</th>
+  </tr>
+  <% for ranking in @rankings %>
+    <tr>
+      <td><%= ranking.desporto %></td>
+      <td><%= ranking.gama %></td>
+      <td><%= ranking.ranking %></td>
+      <td><%= link_to "Show", ranking %></td>
+      <td><%= link_to "Edit", edit_ranking_path(ranking) %></td>
+      <td><%= link_to "Destroy", ranking, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Ranking", new_ranking_path %></p>

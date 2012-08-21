@@ -1,4 +1,14 @@
 Das::Application.routes.draw do
+  resources :local_desportivos
+
+  resources :loja_concorrencia
+
+  resources :rankings
+
+  resources :outros
+
+  resources :outdoors
+
   resources :lojas
 
   # The priority is based upon order of creation:
@@ -50,7 +60,7 @@ Das::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-root :to => 'lojas#index'
+root :to => 'lojas#todos'
 
   # See how all your routes lay out with "rake routes"
 

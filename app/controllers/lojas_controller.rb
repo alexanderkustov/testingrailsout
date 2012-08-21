@@ -1,10 +1,19 @@
 class LojasController < ApplicationController
   # GET /lojas
   # GET /lojas.json
-  def index
+  def todos
     @lojas = Loja.all
-    @json = Loja.all.to_gmaps4rails
+    @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all 
+    @json = @todos.to_gmaps4rails
     
+    @zone2 = Loja.first.latitude
+    @zone1 = Loja.first.longitude
+
+@circles_json = '[
+ {"lng": 9, "lat": 38 , "radius": 10000},
+ 
+ {"lng": -9.211167615409636, "lat": 38.72689262266857, "radius": 25000, "strokeColor": "#FF0000"}
+]'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,13 +21,22 @@ class LojasController < ApplicationController
     end
   end
 
- 
+  def index
+    @lojas = Loja.all
+    @json = @lojas.to_gmaps4rails
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @lojas }
+    end
+  end
 
   # GET /lojas/1
   # GET /lojas/1.json
   def show
     @loja = Loja.find(params[:id])
-
+    @json = Loja.find(params[:id]).to_gmaps4rails
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @loja }
@@ -29,7 +47,10 @@ class LojasController < ApplicationController
   # GET /lojas/new.json
   def new
     @loja = Loja.new
+    @json = Loja.new(params[:id]).to_gmaps4rails
 
+    contacto = @loja.contactos.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @loja }
@@ -39,6 +60,7 @@ class LojasController < ApplicationController
   # GET /lojas/1/edit
   def edit
     @loja = Loja.find(params[:id])
+    @json = Loja.find(params[:id]).to_gmaps4rails
   end
 
   # POST /lojas
@@ -48,7 +70,7 @@ class LojasController < ApplicationController
 
     respond_to do |format|
       if @loja.save
-        format.html { redirect_to @loja, notice: 'Loja was successfully created.' }
+        format.html { redirect_to @loja, notice: 'Loja criada com sucesso' }
         format.json { render json: @loja, status: :created, location: @loja }
       else
         format.html { render action: "new" }
@@ -64,7 +86,7 @@ class LojasController < ApplicationController
 
     respond_to do |format|
       if @loja.update_attributes(params[:loja])
-        format.html { redirect_to @loja, notice: 'Loja was successfully updated.' }
+        format.html { redirect_to @loja, notice: 'Loja actualizada com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

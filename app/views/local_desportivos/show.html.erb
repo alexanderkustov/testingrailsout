@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Detalhes:</b>
+  <%= @local_desportivo.detalhes %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @local_desportivo.gmaps %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @local_desportivo.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @local_desportivo.longitude %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @local_desportivo.morada %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @local_desportivo.nome %>
+</p>
+
+<p>
+  <b>Desporto:</b>
+  <%= @local_desportivo.desporto %>
+</p>
+
+
+<%= link_to 'Edit', edit_local_desportivo_path(@local_desportivo) %> |
+<%= link_to 'Back', local_desportivos_path %>

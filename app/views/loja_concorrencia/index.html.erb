@@ -1,0 +1,38 @@
+<h1>Lojas de Concorrencia</h1>
+
+<%= link_to 'Ver Lojas', lojas_path %> |
+<%= link_to 'Ver Lojas de Concorrencia', loja_concorrencia_path %> |
+<%= link_to 'Ver Locais Desportivos', local_desportivos_path %> |
+<%= link_to 'Ver Outdoors', outdoors_path %> |
+<%= link_to 'Ver Outros', outros_path %>
+
+
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Criar Loja', new_loja_path %> | 
+<%= link_to 'Criar Loja Concorrencia', new_loja_concorrencium_path %> |
+<%= link_to 'Criar Local Desportivo', new_local_desportivo_path %> |
+<%= link_to 'Criar Outdoor', new_outdoor_path %> |
+<%= link_to 'Criar Outro', new_outro_path %> 
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Categoria</th>
+    <th>Morada</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loja_concorrencia.each do |loja_concorrencium| %>
+  <tr>
+    <td><%= loja_concorrencium.nome %></td>
+    <td><%= loja_concorrencium.categoria %></td>
+    <td><%= loja_concorrencium.morada %></td>
+    <td><%= link_to 'Ver', loja_concorrencium %></td>
+    <td><%= link_to 'Editar', edit_loja_concorrencium_path(loja_concorrencium) %></td>
+    <td><%= link_to 'Apagar', loja_concorrencium, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+  </tr>
+<% end %>
+</table>

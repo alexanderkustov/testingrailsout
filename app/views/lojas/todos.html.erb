@@ -1,0 +1,24 @@
+<h1>Aplicação Geomapping Decathlon</h1>
+
+<%= link_to 'Ver Lojas', lojas_path %> |
+<%= link_to 'Ver Lojas de Concorrencia', loja_concorrencia_path %> |
+<%= link_to 'Ver Locais Desportivos', local_desportivos_path %> |
+<%= link_to 'Ver Outdoors', outdoors_path %> |
+<%= link_to 'Ver Outros', outros_path %>
+
+ <%= gmaps({
+   
+    "markers"     => { "data" => @json              },
+    
+     "circles"     => { "data" => @circles_json
+                                        }
+    })
+    %>
+
+
+
+<%= link_to 'Criar Loja', new_loja_path %> | 
+<%= link_to 'Criar Loja Concorrencia', new_loja_concorrencium_path %> |
+<%= link_to 'Criar Local Desportivo', new_local_desportivo_path %> |
+<%= link_to 'Criar Outdoor', new_outdoor_path %> |
+<%= link_to 'Criar Outro', new_outro_path %> 

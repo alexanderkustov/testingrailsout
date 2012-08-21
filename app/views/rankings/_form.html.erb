@@ -1,0 +1,16 @@
+<%= form_for @ranking do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :desporto %><br />
+    <%= f.text_field :desporto %>
+  </p>
+  <p>
+    <%= f.label :gama %><br />
+    <%= f.text_field :gama %>
+  </p>
+  <p>
+    <%= f.label :ranking %><br />
+    <%= f.text_field :ranking %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

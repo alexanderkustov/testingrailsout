@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Geral</h2>
 <p>
   <b>Nome:</b>
   <%= @loja.nome %>
@@ -15,16 +15,36 @@
   <%= @loja.detalhes %>
 </p>
 
+<h2>Contactos</h2>
+
+<% @loja.contactos.each do |contacto| %>
+  <li>
+    <%= contacto.nome %>
+    <%= contacto.contacto %>
+    <%= contacto.detalhes %>
+  </li>
+<% end %>
+<hr>
+
+<h3>Zona 1</h3>
+<ul>
+<% for loja in @lojas.nearbys(10) %>
+  <li><%= link_to loja.morada, loja %> (<%= loja.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+
+<hr>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{@loja.latitude}%2C#{@loja.longitude}" %>
+
 <p>
   <b>Latitude:</b>
   <%= @loja.latitude %>
 </p>
-
 <p>
   <b>Longitude:</b>
   <%= @loja.longitude %>
 </p>
-
 <p>
   <b>Gmaps:</b>
   <%= @loja.gmaps %>
