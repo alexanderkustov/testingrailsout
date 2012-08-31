@@ -3,15 +3,15 @@ class LojasController < ApplicationController
   # GET /lojas.json
   def todos
     @lojas = Loja.all
-    @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all 
+    @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all + LojaConcorrencium.all
     @json = @todos.to_gmaps4rails
     
     @zone2 = Loja.first.latitude
     @zone1 = Loja.first.longitude
 
 @circles_json = '[
- {"lng": 9, "lat": 38 , "radius": 10000},
- 
+ {"lng": -9.211167615409636, "lat": 38.72689262266857 , "radius": 10000},
+
  {"lng": -9.211167615409636, "lat": 38.72689262266857, "radius": 25000, "strokeColor": "#FF0000"}
 ]'
 
@@ -35,8 +35,21 @@ class LojasController < ApplicationController
   # GET /lojas/1.json
   def show
     @loja = Loja.find(params[:id])
-    @json = Loja.find(params[:id]).to_gmaps4rails
+   
+
+
+     @json = Loja.find(params[:id]).to_gmaps4rails
+    @loja_concorrencia = LojaConcorrencium.all
+    @outdoors = Outdoor.all
+    @local_desportivo = LocalDesportivo.all
+
+    @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all + LojaConcorrencium.all
+
+    @json = @todos.to_gmaps4rails
     
+    @zone2 = Loja.first.latitude
+    @zone1 = Loja.first.longitude
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @loja }

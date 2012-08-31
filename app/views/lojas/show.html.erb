@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
-<h2>Geral</h2>
-<p>
-  <b>Nome:</b>
-  <%= @loja.nome %>
-</p>
-
+<h2>Loja Decathlon: <%= @loja.nome %></h2>
 <p>
   <b>Morada:</b>
   <%= @loja.morada %>
 </p>
-
 <p>
   <b>Detalhes:</b>
   <%= @loja.detalhes %>
+</p>
+<p>
+  <b>Latitude:</b>
+  <%= (@loja.latitude).round(4) %>
+
+  <b>  Longitude:</b>
+  <%= (@loja.longitude).round(4) %>
 </p>
 
 <h2>Contactos</h2>
@@ -26,29 +27,81 @@
 <% end %>
 <hr>
 
-<h3>Zona 1</h3>
-<ul>
-<% for loja in @lojas.nearbys(10) %>
-  <li><%= link_to loja.morada, loja %> (<%= loja.distance.round(2) %> miles)</li>
+
+<%= gmaps(
+    { 
+      "map_options" => { "center_longitude" => @loja.longitude, "center_latitude" => @loja.latitude, "zoom" => 10, "auto_adjust" => false},
+    
+     "markers"     => { "data" => @json },
+    
+     "circles"     => { 
+                        "data" => [
+
+                 
+                          {'lng' => @loja.longitude, 'lat' => @loja.latitude, 'radius' => 25000, 'strokeColor' => '#FF0000'}
+                          ].to_json ,
+                          
+                      },
+    }
+        ) %>
+
+<hr>
+
+<h2>Zonas</h2>
+
+<div class="row">
+       <div class="span3">
+                <h5>Zona 1 Lojas Decathlon</h5>
+                
+                <% for loja in @loja.nearbys(10) %>
+                  <% if loja.distance.round(2) > 10 %>
+                      <%= link_to loja.morada, loja %>
+                  <% end %>
+                <% end %>
+                
+                <h5>Zona 2 Lojas Decathlon</h5>
+                
+                <% for loja in @loja.nearbys(26) %>
+                  <% if loja.distance.round(2) > 10 %>
+                      <%= link_to loja.morada, loja %>
+                  <% end %>
+                <% end %>
+                
+        </div>
+  <div class="span3">
+<h5> Zona 1 Outdoors </h5>
+<% @outdoors.each do |out| %>
+  <%= link_to out.nome, out if out.distance_from([@loja.latitude,@loja.longitude]) < 10 %>
 <% end %>
-</ul>
+<h5> Zona 2 Outdoors </h5>
+<% @outdoors.each do |out| %>
+  <%= link_to out.nome, out if out.distance_from([@loja.latitude,@loja.longitude]) > 10 && out.distance_from([@loja.latitude,@loja.longitude] )  < 20 %>
+<% end %>
+  </div>
+  <div class="span3">
+<h5> Zona 1 Loja Concorrencia </h5>
+<% @loja_concorrencia.each do |lc| %>
+  <%= link_to lc.nome, lc if lc.distance_from([@loja.latitude,@loja.longitude]) < 10 %>
+<% end %>
+<h5> Zona 2 Loja Concorrencia </h5>
+<% @loja_concorrencia.each do |lc| %>
+  <%= link_to lc.nome, lc if lc.distance_from([@loja.latitude,@loja.longitude]) > 10 && lc.distance_from([@loja.latitude,@loja.longitude] )  < 20 %>
+<% end %>
+</div>
+  <div class="span3">
+<h5> Zona 1 Local Desportivo </h5>
+<% @local_desportivo.each do |ld| %>
+  <%= link_to ld.nome, ld if ld.distance_from([@loja.latitude,@loja.longitude]) < 10 %>
+<% end %>
+<h5> Zona 2 Local Desportivo</h5>
+<% @local_desportivo.each do |ld| %>
+  <%= link_to ld.nome, ld if ld.distance_from([@loja.latitude,@loja.longitude]) > 10 && ld.distance_from([@loja.latitude,@loja.longitude] )  < 20 %>
+<% end %>
+  </div>
+</div>
 
 
 <hr>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{@loja.latitude}%2C#{@loja.longitude}" %>
-
-<p>
-  <b>Latitude:</b>
-  <%= @loja.latitude %>
-</p>
-<p>
-  <b>Longitude:</b>
-  <%= @loja.longitude %>
-</p>
-<p>
-  <b>Gmaps:</b>
-  <%= @loja.gmaps %>
-</p>
 
 
 <%= link_to 'Edit', edit_loja_path(@loja) %> |

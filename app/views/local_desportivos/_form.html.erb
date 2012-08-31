@@ -2,7 +2,17 @@
   <%= f.inputs do %>
    
     <%= f.input :nome %>
-    <%= f.input :desporto,  :as => :select, :collection => ["Futebol", "Basketball", "Volei", "Golfe", "Outro"] %>
+    <%= f.input :desporto,  :as => :select, :collection => [ "Futebol", "Futebol", "Futebol 11",
+"Futebol 7 (piso duro)", "Futebol Sala", "Futebol Praia", "Basquetebol", "Rugby", "Andebol", "Voleibol",
+"Voleibol de praia", "Basebol", "Caminhada", "Escalada", "Alpinismo", "Canyoning", "Espeleologia",
+"Esqui alpinismo", "Esqui", "Snowboard", "Jogos na neve", "Caminhada activa", "Corrida","Trail", "Atletismo", "Cross",
+"BTT", "Ciclismo estrada", "Cicloturismo/lazer", "BMX", "Patins em linha",
+"Patinagem artística", "Hoquei Patins", "Trotineta", "Skate", "Ténis ",
+"Ténis de mesa", "Badminton", "Squash", "Padel", "Outcourt", "Golfe", "Ginástica", "Dança moderna jazz",
+"Dança clássica", "Boxe Inglês", "kick / full / thaï", "Judo", "Karate", "Fitness - Cardio", "Fitness - Musculação", "Caça", "Tiro com arco", "Tiro com dardos", "Petanca", "Equitação", "Pesca", "Pesca Rio", "Pesca Mar", "Hidroginástica",
+"Natação", "Polo Aquático", "Bodyboard", "Surf", "Windsurf", "Kitesurf",
+"Skimboard", "Papagaios", "Mergulho", "Passeios aquáticos", "Pesca submarina",
+"Vela/catamaram", "Caiaque" ] %>
     <%= f.input :morada %>
     <%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 } %>
     <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %> 

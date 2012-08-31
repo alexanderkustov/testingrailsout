@@ -2,9 +2,8 @@ class Outdoor < ActiveRecord::Base
   attr_accessible :detalhes, :foto, :gmaps, :latitude, :longitude, :morada, :nome
   acts_as_gmappable
 
-  geocoded_by :morada                # can also be an IP address
-  after_validation :geocode, :if => :morada_changed?         # auto-fetch coordinates
-
+  geocoded_by :morada                
+  after_validation :geocode, :if => :morada_changed?      
 
   def gmaps4rails_address
     morada

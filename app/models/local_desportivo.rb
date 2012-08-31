@@ -3,6 +3,10 @@ class LocalDesportivo < ActiveRecord::Base
  
   acts_as_gmappable
 
+  geocoded_by :morada                # can also be an IP address
+  after_validation :geocode, :if => :morada_changed?         # auto-fetch coordinates
+
+
   def gmaps4rails_address
     morada
   end
