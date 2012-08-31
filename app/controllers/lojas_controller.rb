@@ -6,6 +6,7 @@ class LojasController < ApplicationController
     @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all + LojaConcorrencium.all
     @json = @todos.to_gmaps4rails
     
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @lojas }
@@ -26,8 +27,10 @@ class LojasController < ApplicationController
   # GET /lojas/1.json
   def show
     @loja = Loja.find(params[:id])
-  
-    @json = Loja.find(params[:id]).to_gmaps4rails
+   
+
+
+     @json = Loja.find(params[:id]).to_gmaps4rails
     @loja_concorrencia = LojaConcorrencium.all
     @outdoors = Outdoor.all
     @local_desportivo = LocalDesportivo.all
