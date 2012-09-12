@@ -21,11 +21,8 @@
   <tr>
     <th>Nome</th>
     <th>Morada</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Foto</th>
-    <th>Detalhes</th>
-    <th>Gmaps</th>
+   
+   
     <th></th>
     <th></th>
     <th></th>
@@ -35,14 +32,10 @@
   <tr>
     <td><%= outdoor.nome %></td>
     <td><%= outdoor.morada %></td>
-    <td><%= outdoor.latitude %></td>
-    <td><%= outdoor.longitude %></td>
-    <td><%= outdoor.foto %></td>
-    <td><%= outdoor.detalhes %></td>
-    <td><%= outdoor.gmaps %></td>
-    <td><%= link_to 'Show', outdoor %></td>
-    <td><%= link_to 'Edit', edit_outdoor_path(outdoor) %></td>
-    <td><%= link_to 'Destroy', outdoor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+    <td><%= link_to 'Mostrar', outdoor %></td>
+    <td><%= link_to 'Editar', edit_outdoor_path(outdoor) %></td>
+    <td><%= link_to 'Remover', outdoor, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
   </tr>
 <% end %>
 </table>

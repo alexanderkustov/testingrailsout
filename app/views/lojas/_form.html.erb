@@ -1,15 +1,40 @@
+
 <%= semantic_form_for @loja do |f| %>
   <%= f.inputs do%>
-  <%= f.input :nome %> 
-  <%= f.input :morada %> 
-  <%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 } %>
-  <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %> 
-  <%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %> 
-<% end %>
+  <table>
+  	
+<tr>
+	<td>Nome</td>
+	 <td><%= f.input :nome, :label => "&nbsp;" %> </td>
+</tr>
+<tr>
+ <td>Morada</td>
+  <td><%= f.input :morada, :label => "&nbsp;" %> </td> 
 
+   </tr>
+   <tr>
+   	 <td>Detalhes</td>
+  <td><%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 }, :label => "&nbsp;" %> </td>
+
+   </tr>
+   <tr>
+   	<td>Lat / Lng</td>
+  <td><%= f.input :latitude, :label => "&nbsp;" %> <%= f.input :longitude, :label => "&nbsp;" %> </td>
+
+   </tr>
+   <tr>
+  <td><%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %> </td>
+
+
+  </tr>
+
+  </table>
+<% end %>
 <%= f.actions do %>
    <%= f.action :submit, :as => :button, :label => "Criar Loja"  %>
 <% end %>
+
+<h3>Adicionar Contactos (Opcional)</h3>
    
 <%= f.fields_for :contactos do |builder| %>
   <%= render 'contacto_fields', f: builder %>
@@ -17,6 +42,5 @@
 <% end %>
 
 <%= render 'jsmap' %>
-
 
 <% end %>

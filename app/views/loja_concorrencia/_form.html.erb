@@ -1,35 +1,11 @@
 <%= semantic_form_for @loja_concorrencium do |f| %>
   <%= f.inputs do %>
     <%= f.input :nome %>
-    <%= f.input :categoria ,  :as => :select, :collection => [ "Sport Zone",
-"Sport Direct",
-"Primark",
-"Nike store",
-"Stand Jasma",
-"Aigle",
-"Athlete Foots",
-"Jumbo",
-"Casco Antigo",
-"Continente",
-"Coronel Tapioca",
-"Courir",
-"Econauta",
-"El Corte Ingles",
-"Ericeira Surf shop",
-"Esloc sport",
-"HM",
-"Jumbo",
-"Leclerc",
-"Mega aventura - bike",
-"My Golf",
-"Nevada Bob",
-"Timberland",
-"Tribo do Sol",
-"Windsurf Guincho",
-"ZIPPY",
-"Feira nova",
-"Footlocker",
-"Zara" ] %>
+    <%= f.input :categoria ,  :as => :select, :collection => [ "Sport Zone", "Sport Direct",
+"Primark", "Nike store", "Stand Jasma", "Aigle", "Athlete Foots", "Jumbo", "Casco Antigo",
+"Continente", "Coronel Tapioca", "Courir", "Econauta", "El Corte Ingles", "Ericeira Surf shop",
+"Esloc sport", "HM", "Jumbo", "Leclerc", "Mega aventura - bike", "My Golf", "Nevada Bob", "Timberland", "Tribo do Sol",
+"Windsurf Guincho", "ZIPPY", "Feira nova", "Footlocker", "Zara" ] %>
 
     <%= f.input :morada %>
     <%= f.input :latitude %>
@@ -40,6 +16,8 @@
   <%= f.actions do %>
     <%= f.action :submit, :as => :input %>
   <% end %>
+<h2>Ranking de Gamas</h2>
+  
 
 <%= f.fields_for :rankings do |builder| %>
   <%= render 'ranking_fields', f: builder %>

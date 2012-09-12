@@ -25,11 +25,22 @@
   <%= @loja_concorrencium.longitude %>
 </p>
 
-<p>
-  <b>Gmaps:</b>
-  <%= @loja_concorrencium.gmaps %>
-</p>
 
+
+<h2>Rankings</h2>
+
+<% @loja_concorrencium.rankings.each do |ranking| %>
+  <li>
+    <%= ranking.desporto %>
+    <%= ranking.gama %>
+
+    <% (ranking.ranking).times do %>
+      <img src="/images/star.png" />
+    <% end %>
+  </li>
+
+<% end %>
+<hr>
 
 <%= link_to 'Edit', edit_loja_concorrencium_path(@loja_concorrencium) %> |
 <%= link_to 'Back', loja_concorrencia_path %>

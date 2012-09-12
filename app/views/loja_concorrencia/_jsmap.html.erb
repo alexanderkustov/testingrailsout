@@ -12,8 +12,8 @@
         };
         // Update form attributes with given coordinates
         function updateFormLocation(latLng) {
-            $('#loja_latitude').val(latLng.lat());
-            $('#loja_longitude').val(latLng.lng());
+            $('#loja_concorrencium_latitude').val(latLng.lat());
+            $('#loja_concorrencium_longitude').val(latLng.lng());
             $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
         }
         // Add a marker with an open infowindow

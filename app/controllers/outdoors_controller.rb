@@ -26,6 +26,7 @@ class OutdoorsController < ApplicationController
   # GET /outdoors/new.json
   def new
     @outdoor = Outdoor.new
+    @json = Outdoor.new(params[:id]).to_gmaps4rails
 
     respond_to do |format|
       format.html # new.html.erb

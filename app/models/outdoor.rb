@@ -10,10 +10,10 @@ class Outdoor < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-     "Outdoor: #{nome} <br \>
+     "<b>Nome: </b><a href='outdoors/#{id}'>#{nome}</a> <br \>
      #{detalhes}
      <br \>
-     <a href='images/#{foto}''><img src='images/#{foto}' height='180px' \></a>
+     <a href='#{foto}''><img src='#{foto}' height='180px' \></a>
      "
   end
   
