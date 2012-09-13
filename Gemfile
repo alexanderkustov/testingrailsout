@@ -9,7 +9,7 @@ end
 group :development, :test do
   gem "sqlite3"
 end
-
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'gmaps4rails'
 gem 'formtastic'
 gem "nifty-generators", :group => :development
