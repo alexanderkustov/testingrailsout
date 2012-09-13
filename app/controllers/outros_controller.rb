@@ -4,7 +4,7 @@ class OutrosController < ApplicationController
   def index
     @outros = Outro.all
     @json = @outros.to_gmaps4rails
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @outros }
