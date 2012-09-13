@@ -1,11 +1,16 @@
 class LojasController < ApplicationController
+
+
+
+
+
   # GET /lojas
   # GET /lojas.json
   def todos
     @lojas = Loja.all
     @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all + LojaConcorrencium.all
     @json = @todos.to_gmaps4rails
-    
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +21,7 @@ class LojasController < ApplicationController
   def index
     @lojas = Loja.all
     @json = @lojas.to_gmaps4rails
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @lojas }
@@ -27,7 +32,7 @@ class LojasController < ApplicationController
   # GET /lojas/1.json
   def show
     @loja = Loja.find(params[:id])
-   
+
 
 
      @json = Loja.find(params[:id]).to_gmaps4rails
@@ -38,7 +43,7 @@ class LojasController < ApplicationController
     @todos = Outdoor.all + Loja.all + Outro.all + LocalDesportivo.all + LojaConcorrencium.all
 
     @json = @todos.to_gmaps4rails
-    
+
     @zone2 = Loja.first.latitude
     @zone1 = Loja.first.longitude
 
@@ -55,7 +60,7 @@ class LojasController < ApplicationController
     @json = Loja.new(params[:id]).to_gmaps4rails
 
     contacto = @loja.contactos.build
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @loja }
