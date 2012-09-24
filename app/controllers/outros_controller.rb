@@ -61,7 +61,7 @@ class OutrosController < ApplicationController
 
     respond_to do |format|
       if @outro.update_attributes(params[:outro])
-        format.html { redirect_to @outro, notice: 'Outro was successfully updated.' }
+        format.html { redirect_to @outro, notice: 'Outro actualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

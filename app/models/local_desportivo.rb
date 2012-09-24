@@ -1,6 +1,6 @@
 class LocalDesportivo < ActiveRecord::Base
   attr_accessible :desporto, :detalhes, :gmaps, :latitude, :longitude, :morada, :nome
- 
+
   acts_as_gmappable
 
   geocoded_by :morada                # can also be an IP address
@@ -15,15 +15,15 @@ class LocalDesportivo < ActiveRecord::Base
       text = "<b>Nome:</b> #{nome} <br/>
        <b>Desporto:</b> #{desporto} <br/>
        <b>Detalhes:</b> #{detalhes}<br \>"
-      
+
   text
   end
 
   def gmaps4rails_marker_picture
   {
-   "picture" => "/images/#{desporto}.png",
-   "width" => 32,
-   "height" => 37,
+   "picture" => "/images/picto/#{desporto}.png",
+   "width" => 39,
+   "height" => 70,
   }
 end
 end

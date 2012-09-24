@@ -1,10 +1,10 @@
 <%= semantic_form_for @local_desportivo do |f| %>
   <%= f.inputs do %>
-   
+
     <%= f.input :nome %>
-    <%= f.input :desporto,  :as => :select, :collection => [ "Futebol", "Futebol", "Futebol 11",
+    <%= f.input :desporto,  :as => :select, :collection => [ "Futebol", "Futebol 11",
 "Futebol 7 (piso duro)", "Futebol Sala", "Futebol Praia", "Basquetebol", "Rugby", "Andebol", "Voleibol",
-"Voleibol de praia", "Basebol", "Caminhada", "Escalada", "Alpinismo", "Canyoning", "Espeleologia",
+"Voleibol de praia", "Basebol", "Caminhada", "Escalada", "Alpinismo", "Canoagem", "Espeleologia",
 "Esqui alpinismo", "Esqui", "Snowboard", "Jogos na neve", "Caminhada activa", "Corrida","Trail", "Atletismo", "Cross",
 "BTT", "Ciclismo estrada", "Cicloturismo/lazer", "BMX", "Patins em linha",
 "Patinagem artística", "Hoquei Patins", "Trotineta", "Skate", "Ténis ",
@@ -15,8 +15,8 @@
 "Vela/catamaram", "Caiaque" ] %>
     <%= f.input :morada %>
     <%= f.input :detalhes, :input_html => { :class => 'autogrow', :rows => 2, :cols => 20 } %>
-    <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %> 
-    <%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %> 
+    <%= f.input :latitude, :label => "Lat" %> <%= f.input :longitude, :label => "Lng" %>
+    <%= f.input :gmaps, :input_html => { :disabled => true }, :label => "" %>
   <% end %>
 
   <%= f.actions do %>
