@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120819172523) do
 
-  create_table "concorrencia", :force => true do |t|
-    t.string   "nome"
-    t.string   "categoria"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.text     "detalhes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "contactos", :force => true do |t|
     t.integer  "loja_id"
     t.string   "nome"
@@ -90,12 +80,11 @@ ActiveRecord::Schema.define(:version => 20120819172523) do
   end
 
   create_table "rankings", :force => true do |t|
-    t.integer  "loja_concorrencium_id"
     t.string   "desporto"
     t.string   "gama"
     t.integer  "ranking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
